@@ -1,6 +1,6 @@
 package TESTS;
 
-public class FibonacciTEst {
+public class FibonacciRecursionTest {
     public static void main(String[] args) {
 
 
