@@ -1,24 +1,21 @@
 package TESTS;
 
+import java.util.Scanner;
+
 public class FibonacciRecursionTest {
     public static void main(String[] args) {
 
+        Scanner scan = new Scanner(System.in);
 
-        System.out.println(fibonacci(50));
+        int n = Integer.parseInt(scan.nextLine());
+        System.out.println(fibonacci(n));
 
     }
 
     private static long fibonacci(long n) {
-
-        if (n == 0) {
-            return 0;
-        } else if (n == 1) {
-            return 1;
-        } else {
-            return fibonacci(n - 1) + fibonacci(n - 2);
-        }
+        if (n < 2) return n;
+        return fibonacci(n - 1) + fibonacci(n - 2);
     }
-
 }
 
 
