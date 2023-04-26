@@ -11,20 +11,30 @@ public class MultiArrays_Test {
         int rollsCount = Integer.parseInt(ns[0]);
         int colsCount = Integer.parseInt(ns[1]);
 
-        int[][] multiArray = new int[rollsCount][colsCount];
+        int[][] matrix = new int[rollsCount][colsCount];
 
+        for (int i = 0; i < matrix.length; i++) {
+            String[] parts = scan.nextLine().split("\\s+");
 
-        for (int i = 0; i < rollsCount; i++) {
-            for (int j = 0; j < colsCount; j++) {
-                multiArray[i][j] = Integer.parseInt(scan.nextLine());
+            for (int j = 0; j < matrix[i].length; j++) {
+            matrix[i][j] = Integer.parseInt(parts[j]);
+
             }
         }
+
+        System.out.println("PRINT");
         //PRINT
-        for (int i = 0; i < multiArray.length; i++) {
-            for (int j = 0; j < multiArray[0].length; j++) {
-                System.out.print(multiArray[i][j] + " ");
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
             }
             System.out.println();
         }
+
+
+//        2 3
+//        1 2 3
+//        4 5 6
     }
 }
