@@ -12,7 +12,7 @@ public class _08_L_WrongMeasurements {
 
         int[][] matrix = new int[matrixRow][];
 
-
+        // fill matrix
         for (int row = 0; row < matrix.length; row++) {
             int[] line = Arrays.stream(scan.nextLine().split("\\s+"))
                     .mapToInt(Integer::parseInt).toArray();
