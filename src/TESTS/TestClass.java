@@ -1,5 +1,6 @@
 package TESTS;
 import java.util.*;
+
 public class TestClass {
 
     public static void main(String[] args) {
@@ -17,6 +18,8 @@ public class TestClass {
         System.out.println(queue.poll());
 
         System.out.println();
+
+        
 
 
     }
