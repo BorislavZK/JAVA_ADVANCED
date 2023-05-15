@@ -11,11 +11,18 @@ public class _02_KnightsOfHonor {
         String input = scan.nextLine();
         String[] names = input.split(" ");
 
+
+
         Consumer<String[]> namesPrint = array ->{
 
             for (String name : array){
                 System.out.println("Sir " + name );
             }
         };
+
+
+        namesPrint.accept(names);
+
+
     }
 }
