@@ -17,7 +17,6 @@ public class _04_E_AppliedArithmetics {
         List<Integer> numbers = Arrays.stream(scan.nextLine().split("\\s+"))
                 .map(Integer::parseInt).collect(Collectors.toList());
 
-
         String command = scan.nextLine();
 
         Function<List<Integer>, List<Integer>> addCommand = list -> list.stream().map(num -> num += 1).collect(Collectors.toList());
@@ -33,17 +32,22 @@ public class _04_E_AppliedArithmetics {
             switch (command){
 
                 case "add":
+                    numbers = addCommand.apply(numbers);
                     break;
-
                 case "multiply":
+                    numbers = multiplyCommand.apply(numbers);
                     break;
-
                 case "subtract":
+                    numbers = subtractCommand.apply(numbers);
                     break;
-
                 case "print":
+                    printCommand.accept(numbers);
+                    System.out.println();
                     break;
             }
+
+
+            command = scan.nextLine();
         }
 
 

@@ -3,57 +3,59 @@ package FunctionalProgramming_TEST;
 public class FunctionalProgramming_Patterns {
 
 
-        /**
-
-        // Function<приема, връща> -> apply
-        // Consumer<приема> -> void -> accept
-        // Supplier<връща> -> get
-        // Predicate<приема> -> връща true / false -> test
-        // BiFunction<приема1, приема2, връща> -> apply
-
-        */
+    //lastIndexOf -> връща последния индекс, на който срещаме дадения елемент
+    //indexOf -> връща първия индекс, на който срещаме дадения елемент
 
 
+    //Function<List<Integer>, Integer> minElement = list -> list.lastIndexOf(Collections.min(list));
 
+    /**
 
-        /**
-         //PRINT ELEMENT WITH WHITE SPACE
-    Consumer<String> printName = s -> System.out.print(s + " ");
-        elementsSet.forEach(printName);
+     // Function<приема, връща> -> apply
+     // Consumer<приема> -> void -> accept
+     // Supplier<връща> -> get
+     // Predicate<приема> -> връща true / false -> test
+     // BiFunction<приема1, приема2, връща> -> apply
+
      */
 
 
-        /**
-
-        // CONSUMER PRINT COLLECTION
-        // TODO - test with comma separation!!!
-        Consumer<String[]> namesPrint = array ->{
-            for (String name : array){
-                System.out.println("Sir " + name );
-            }
-        };
-
-        namesPrint.accept(names);
-
-         */
+    /**
+     //PRINT ELEMENT WITH WHITE SPACE
+     Consumer<String> printName = s -> System.out.print(s + " ");
+     elementsSet.forEach(printName);
+     */
 
 
+    /**
 
-        /**
+     // CONSUMER PRINT COLLECTION
+     // TODO - test with comma separation!!!
+     Consumer<String[]> namesPrint = array ->{
+     for (String name : array){
+     System.out.println("Sir " + name );
+     }
+     };
 
-        // PRINT EVERY SINGLE CHAR
-        String str = "hello";
+     namesPrint.accept(names);
 
-        Function<String, Character> printChars = s -> {
-            for (int i = 0; i < s.length(); i++) {
-                System.out.println(s.charAt(i));
-            }
-            return null; // return null since we're only interested in printing the characters
-        };
-        printChars.apply(str);
+     */
 
-         */
 
+    /**
+
+     // PRINT EVERY SINGLE CHAR
+     String str = "hello";
+
+     Function<String, Character> printChars = s -> {
+     for (int i = 0; i < s.length(); i++) {
+     System.out.println(s.charAt(i));
+     }
+     return null; // return null since we're only interested in printing the characters
+     };
+     printChars.apply(str);
+
+     */
 
 
 }
