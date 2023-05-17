@@ -1,5 +1,12 @@
 package FunctionalProgramming_TEST;
 
+import ClassesAndObjects.OpinionPoll.Person;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.function.Predicate;
+
 public class FunctionalProgramming_Patterns {
 
 
@@ -8,6 +15,19 @@ public class FunctionalProgramming_Patterns {
 
 
     //Function<List<Integer>, Integer> minElement = list -> list.lastIndexOf(Collections.min(list));
+
+    /**
+
+     //SORT AND PRINT LIST WITH Person ELEMENTS
+     List<Person> personsList = new ArrayList<>();
+
+     personsList.sort(Comparator.comparing(Person::getName));
+     personsList.stream().filter(p -> p.getAge() > 30).forEach(System.out::println);
+
+     */
+
+
+
 
     /**
 
