@@ -6,10 +6,10 @@ public class CarV2 {
     public String model;
     public int horsePower;
 
-    public CarV2(String brand, String model, int horsePower) {
+    public CarV2(String brand) {
         this.brand = brand;
-        this.model = model;
-        this.horsePower = horsePower;
+        this.model = "unknown";
+        this.horsePower = -1;
     }
 
     public String getBrand() {
