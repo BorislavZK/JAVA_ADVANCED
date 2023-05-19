@@ -17,6 +17,7 @@
         }
     }
 
+    //READ MATRIX ELEMENT ROW BY ROW
 	private static void fillMatrix(String[][] matrix, Scanner scanner) {
         for (int row = 0; row < matrix.length ; row++) {
             //scanner.nextLine() -> "1 2 3"
@@ -24,6 +25,8 @@
             matrix[row] = scanner.nextLine().split("\\s+");
         }
     }
+
+    //PRINT MATRIX
 2. извеждане на данни от матрица
 	private static void printMatrix(int[][] matrix) {
         for (int row = 0; row < matrix.length; row++) {
@@ -33,6 +36,8 @@
             System.out.println(); //свали курсора на следващия ред
         }
     }
+
+
 
 3. диагонали в квадратна матрица
 - главен диагонал -> индекс на ред = индекс на колона

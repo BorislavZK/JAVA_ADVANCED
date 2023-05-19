@@ -1,6 +1,5 @@
 
 
-
      // Function<приема, връща> -> apply
      // Consumer<приема> -> void -> accept
      // Supplier<връща> -> get
@@ -14,7 +13,6 @@
 
 
      Function<List<Integer>, Integer> minElement = list -> list.lastIndexOf(Collections.min(list));
-
 
 
 
@@ -41,7 +39,6 @@
         }
      };
           namesPrint.accept(names);
-
 
 
 
