@@ -64,3 +64,26 @@
 	- дясно с 1 позиция -> колона + 1
 	- надолу с 1 позиция -> ред + 1
 	- нагоре с 1 позиция -> ред - 1
+
+
+
+
+	MATRIX MOVEMENT
+
+	    int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}; // Example matrix
+
+            // Create a map to store the commands
+            Map<String, int[]> commandMap = new HashMap<>();
+            commandMap.put("up", new int[]{-1, 0});
+            commandMap.put("down", new int[]{1, 0});
+            commandMap.put("left", new int[]{0, -1});
+            commandMap.put("right", new int[]{0, 1});
+
+            int[] currentPosition = {0, 0}; // Start at top left corner of matrix
+
+            // Move through the matrix with commands
+            String[] commands = {"right", "down", "down", "left", "up", "right"}; // Example commands
+            for (String command : commands) {
+                int[] movement = commandMap.get(command);
+                currentPosition[0] += movement[0];
+                currentPosition[1] += movement[1];

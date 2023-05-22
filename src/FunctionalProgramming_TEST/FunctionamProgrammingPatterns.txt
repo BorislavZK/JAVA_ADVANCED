@@ -8,8 +8,10 @@
 
 
 
-     lastIndexOf -> връща последния индекс, на който срещаме дадения елемент
-     indexOf -> връща първия индекс, на който срещаме дадения елемент
+     .lastIndexOf -> връща последния индекс, на който срещаме дадения елемент
+     .indexOf -> връща първия индекс, на който срещаме дадения елемент
+     .removeIf -
+
 
 
      Function<List<Integer>, Integer> minElement = list -> list.lastIndexOf(Collections.min(list));
