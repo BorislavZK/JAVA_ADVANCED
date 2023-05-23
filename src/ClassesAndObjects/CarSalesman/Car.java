@@ -9,12 +9,12 @@ public class Car {
     //A Car's weight, color - OPTIONAL
 
     private String model;
-    private String engine;
+    private Engine engine;
     private int weight;
     private String color;
 
 
-    public Car(String model, String engine) {
+    public Car(String model, Engine engine) {
         this.model = model;
         this.engine = engine;
     }
@@ -27,11 +27,11 @@ public class Car {
         this.model = model;
     }
 
-    public String getEngine() {
+    public Engine getEngine() {
         return engine;
     }
 
-    public void setEngine(String engine) {
+    public void setEngine(Engine engine) {
         this.engine = engine;
     }
 
@@ -49,5 +49,55 @@ public class Car {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    @Override
+    public String toString() {
+
+        StringBuilder sb = new StringBuilder();
+        //"{CarModel}:
+        sb.append(this.model).append(":").append(System.lineSeparator());
+        //{EngineModel}:
+        sb.append(this.engine.getEngineModel()).append(":").append(System.lineSeparator());
+        //Power: {EnginePower}
+        sb.append("Power: ").append(this.engine.getEnginePower()).append(System.lineSeparator());
+
+
+        //Displacement: {EngineDisplacement}
+        sb.append("Displacement: ");
+        //нямаме = 0; имаме = цяло число
+        if (this.engine.getEngineDisplacement() == 0) {
+            sb.append("n/a").append(System.lineSeparator());
+        } else {
+            sb.append(this.engine.getEngineDisplacement()).append(System.lineSeparator());
+        }
+
+        //Efficiency: {EngineEfficiency}
+        sb.append("Efficiency: ");
+        if (engine.getEngineEfficiency() == null) {
+            sb.append("n/a").append(System.lineSeparator());
+        }else {
+            sb.append(this.engine.getEngineEfficiency()).append(System.lineSeparator());
+        }
+
+        //Weight: {CarWeight}
+        sb.append("Weight: ");
+        if (this.weight == 0){
+            sb.append("n/a").append(System.lineSeparator());
+        }else {
+            sb.append(this.weight).append(System.lineSeparator());
+        }
+
+        //Color: {CarColor}"
+        sb.append("Color: ");
+        //нямаме = null; имаме = текст
+        if (this.color == null){
+            sb.append("n/a").append(System.lineSeparator());
+        }else {
+            sb.append(this.color).append(System.lineSeparator());
+        }
+
+        return sb.toString();
+
     }
 }
