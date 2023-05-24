@@ -1,55 +1,55 @@
 package ClassesAndObjects.CompanyRoster;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = Integer.parseInt(scanner.nextLine());
+        Map<String, Department> departments = new HashMap<>();
+        while (n-- > 0) {
+            String[] tokens = scanner.nextLine().split("\\s+");
+            String name = tokens[0];
+            double salary = Double.parseDouble(tokens[1]);
+            String position = tokens[2];
+            String departmentTitle = tokens[3];
 
-        Scanner scan = new Scanner(System.in);
-
-        int n = Integer.parseInt(scan.nextLine());
-
-        List<Employee> employees = new ArrayList<>();
-
-        //Peter 120.00 Dev Development peter@abv.bg 28
-
-        for (int i = 0; i < n; i++) {
-
-            String[] line = scan.nextLine().split("\\s+");
-            String name = line[0];
-            double salary = Double.parseDouble(line[1]);
-            String position = line[2];
-            String department = line[3];
-
-            Employee employee = new Employee(name, salary, position, department);
-
-            if (line.length == 6) {
-
-                String email = line[4];
-                int age = Integer.parseInt(line[5]);
-
-                employee.setAge(age);
-                employee.setEmail(email);
-
-            } else if (line.length == 5) {
-
-                if (Character.isDigit(line[4].charAt(0))) {
-                    int age = Integer.parseInt(line[4]);
-
-                    employee.setAge(age);
-                    employee.setEmail("n/a");
-                } else {
-                    String mail = line[4];
-
-                    employee.setAge(-1);
-                    employee.setEmail(mail);
-                }
+            departments.putIfAbsent(departmentTitle, new Department(departmentTitle));
+            Department currentDepartment = departments.get(departmentTitle);
+            switch (tokens.length) {
+                case 4:
+                    currentDepartment.addEmployee(new Employee(name, salary, position, departmentTitle));
+                    break;
+                case 5:
+                    try {
+                        currentDepartment.addEmployee(new Employee(name, salary, position, departmentTitle, Integer.parseInt(tokens[4])));
+                    } catch (Exception e) {
+                        currentDepartment.addEmployee(new Employee(name, salary, position, departmentTitle, tokens[4]));
+                    }
+                    break;
+                case 6:
+                    currentDepartment.addEmployee(new Employee(name, salary, position, departmentTitle, tokens[4], Integer.parseInt(tokens[5])));
+                    break;
             }
-
-            employees.add(employee);
-
+            departments.put(departmentTitle, currentDepartment);
         }
+        double maxAverageSalary = 0;
+        String bestDepartment = "";
+        for (Department d : departments.values()) {
+            double averageSalary = d.getAverageSalary();
+            if (averageSalary > maxAverageSalary) {
+                maxAverageSalary = averageSalary;
+                bestDepartment = d.getName();
+            }
+        }
+
+
+        System.out.printf("Highest Average Salary: %s\n", bestDepartment);
+        departments.get(bestDepartment)
+                .getEmployees()
+                .stream()
+                .sorted(Comparator.comparingDouble(Employee::getSalary).reversed())
+                .forEach(System.out::println);
+
     }
 }
