@@ -7,6 +7,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int n = Integer.parseInt(scanner.nextLine());
         Map<String, Department> departments = new HashMap<>();
+
         while (n-- > 0) {
             String[] tokens = scanner.nextLine().split("\\s+");
             String name = tokens[0];
@@ -50,6 +51,5 @@ public class Main {
                 .stream()
                 .sorted(Comparator.comparingDouble(Employee::getSalary).reversed())
                 .forEach(System.out::println);
-
     }
 }

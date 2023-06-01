@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Department {
-    private final String name;
-    private final List<Employee> employees = new ArrayList<>();
+    private String name;
+    private List<Employee> employees;
 
     public Department(String name) {
+        employees = new ArrayList<>();
         this.name = name;
     }
 
