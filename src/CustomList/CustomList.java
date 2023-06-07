@@ -26,13 +26,12 @@ public class CustomList<T extends Comparable<T> > {
         swap(list, index1, index2);
     }
 
+    // защо не мога да ползвам този swap в main-a?
     public static <T> void swap(List<T> list, int index1, int index2) {
         T temp = list.get(index1);
         list.set(index1, list.get(index2));
         list.set(index2, temp);
     }
-
-
 
 
     public static <T extends Comparable<T>> int greaterThan(List<T> list, T val) {
@@ -70,5 +69,6 @@ public class CustomList<T extends Comparable<T> > {
     public void sort() {
         list = list.stream().sorted(Comparator.naturalOrder()).collect(Collectors.toList());
     }
+
 
 }

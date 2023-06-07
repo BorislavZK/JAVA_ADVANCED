@@ -1,7 +1,5 @@
 package TESTS.ListUtilityMethods;
 
-import TESTS.ListUtilityMethods.Box;
-
 import java.util.List;
 
 public class ListUtilsMethods {
@@ -30,15 +28,6 @@ public class ListUtilsMethods {
         list.set(index2, temp);
     }
 
-    public static <T extends Comparable<T>> int greaterThan(List<Box<T>> list, Box<T> val) {
-        int numGreater = 0;
-        for (Box<T> element : list) {
-            if (element.compareTo(val) > 0) {
-                numGreater++;
-            }
-        }
-        return numGreater;
-    }
 
     public static <T extends Comparable<T>> int greaterThan(List<T> list, T val) {
         int numGreater = 0;

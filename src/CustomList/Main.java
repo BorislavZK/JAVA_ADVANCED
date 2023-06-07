@@ -26,7 +26,11 @@ public class Main {
                 int index1 = Integer.parseInt(data[1]);
                 int index2 = Integer.parseInt(data[2]);
                 list.swap(index1, index2);
+                break;
 
+//            case "Greater":
+//                System.out.println(list.greaterThan(data[1]));
+//                break;
         }
 
     }
