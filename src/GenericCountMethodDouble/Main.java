@@ -1,4 +1,5 @@
-package GenericCountMethodStrings;
+package GenericCountMethodDouble;
+
 import java.util.Scanner;
 
 public class Main {
@@ -7,13 +8,13 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int n = Integer.parseInt(scanner.nextLine());
 
-        Box<String> box = new Box<>();
+        Box<Double> box = new Box<>();
 
         while (n-- > 0) {
-            box.add(scanner.nextLine());
+            box.add(Double.parseDouble(scanner.nextLine()));
         }
 
-        String target = scanner.nextLine();
+        Double target = Double.parseDouble(scanner.nextLine());
 
         System.out.println(box.countGreaterItems(target));
     }
