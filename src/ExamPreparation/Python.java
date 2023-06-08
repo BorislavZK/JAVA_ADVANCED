@@ -38,41 +38,44 @@ public class Python {
                 //left", "right", "up", "down
                 case "left":
                     if (pythonCol - 1 < 0) {
-                        pythonCol = matrix.length - 1;
+                        pythonCol = size - 1;
                     } else {
-                        pythonCol -= 1;
+                        pythonCol--;
                     }
 
                     break;
                 case "right":
-                    if (pythonCol + 1 > matrix[0].length - 1) {
+                    if (pythonCol + 1 > size - 1) {
                         pythonCol = 0;
                     } else {
-                        pythonCol += 1;
+                        pythonCol++;
                     }
                     break;
 
                 case "up":
-                    if (pythonRow - 1 < 0) { //!
-                        pythonRow = matrix.length - 1;
+                    if (pythonRow - 1 < 0) {
+                        pythonRow = size - 1;
                     } else {
-                        pythonRow -= 1;
+                        pythonRow--;
                     }
                     break;
 
                 case "down":
-                    if (pythonRow + 1 > matrix[0].length - 1) {
+                    if (pythonRow + 1 > size - 1) {
                         pythonRow = 0;
                     } else {
-                        pythonRow += 1;
+                        pythonRow++;
                     }
                     break;
             }
 
             char currentChar = matrix[pythonRow][pythonCol];
+
             if (currentChar == 'f') {
                 foodCount--;
                 pythonLength += 1;
+                matrix[pythonRow][pythonCol] = '*';
+
             } else if (currentChar == 'e') {
                 System.out.println("You lose! Killed by an enemy!");
                 return;
@@ -80,10 +83,10 @@ public class Python {
             index++;
         }
 
-        if (pythonLength - 1 < foodCount) {
+        if (foodCount > 0) {
             System.out.println("You lose! There is still " + foodCount + " food to be eaten.");
-        }else {
-            System.out.println("You win! Final python length is "+ pythonLength);
+        } else {
+            System.out.println("You win! Final python length is " + pythonLength);
         }
 
     }
