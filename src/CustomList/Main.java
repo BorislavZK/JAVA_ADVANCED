@@ -7,7 +7,7 @@ public class Main {
 
     Scanner scan = new Scanner(System.in);
     String input = scan.nextLine();
-    CustomList<String> list = new CustomList<String>();
+    CustomList<String> list = new CustomList<String>(); // защо ми гърми като махна втория <String>  ->  <>
 
     while (!input.equals("END")){
         String[] data = input.split("\\s+");

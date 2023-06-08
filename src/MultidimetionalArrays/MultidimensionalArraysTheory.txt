@@ -17,7 +17,7 @@
         }
     }
 
-    //READ MATRIX ELEMENT ROW BY ROW
+    //FILL MATRIX ELEMENT ROW BY ROW
 	private static void fillMatrix(String[][] matrix, Scanner scanner) {
         for (int row = 0; row < matrix.length ; row++) {
             //scanner.nextLine() -> "1 2 3"
@@ -25,6 +25,14 @@
             matrix[row] = scanner.nextLine().split("\\s+");
         }
     }
+
+    //FILL CHAR MATRIX ROW BY ROW
+    private static void fillMatrix (char[][] matrix, Scanner scan){
+            for (int i = 0; i < matrix.length; i++) {
+                matrix[i] = scan.nextLine().replace(" ", "").toCharArray();
+            }
+        }
+
 
     //PRINT MATRIX
 2. извеждане на данни от матрица
@@ -87,3 +95,34 @@
                 int[] movement = commandMap.get(command);
                 currentPosition[0] += movement[0];
                 currentPosition[1] += movement[1];
+
+
+                //Movement
+                //reaches the top/bottom edge of the screen it goes on the opposite side of the same column
+
+                private static void move(String direction) {
+                        switch (direction) {
+                            case "up":
+                                r--;
+                                if (r < 0) {
+                                    r = fieldSize - 1;
+                                }
+                                break;
+                            case "right":
+                                c++;
+                                if (c == fieldSize) {
+                                    c = 0;
+                                }
+                                break;
+                            case "down":
+                                r++;
+                                if (r == fieldSize) {
+                                    r = 0;
+                                }
+                                break;
+                            case "left":
+                                c--;
+                                if (c < 0) {
+                                    c = fieldSize - 1;
+                                }
+                                break;

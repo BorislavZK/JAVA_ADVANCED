@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CustomList<T extends Comparable<T> > {
-    protected List<T> list = new ArrayList<>();
+    private List<T> list = new ArrayList<>();
 
     public void add(T item) {
         list.add(item);
@@ -26,14 +26,14 @@ public class CustomList<T extends Comparable<T> > {
         swap(list, index1, index2);
     }
 
-    // защо не мога да ползвам този swap в main-a?
+    // защо не мога да ползвам този swap в main-a? а трябва от горния метод?
     public static <T> void swap(List<T> list, int index1, int index2) {
         T temp = list.get(index1);
         list.set(index1, list.get(index2));
         list.set(index2, temp);
     }
 
-
+        // реално тук се получава същото
     public static <T extends Comparable<T>> int greaterThan(List<T> list, T val) {
         int numGreater = 0;
         for (T element : list) {
@@ -62,6 +62,7 @@ public class CustomList<T extends Comparable<T> > {
                 .get();
     }
 
+    //тук е ОК - викам си го и принтирам
     public void printAll() {
         list.forEach(System.out::println);
     }
