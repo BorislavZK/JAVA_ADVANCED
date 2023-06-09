@@ -6,7 +6,6 @@ public class Pet {
     //•	age: int
     //•	owner: String
 
-
     private String name;
     private int age;
     private String owner;
