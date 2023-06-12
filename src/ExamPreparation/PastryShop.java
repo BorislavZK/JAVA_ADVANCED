@@ -26,7 +26,6 @@ public class PastryShop {
 
             int sum = 0;
 
-
             Integer firstLiquid = liquids.get(firstLiquidIndex);
 
             Integer lastIngredient = ingredients.get(lastIngredientInd);

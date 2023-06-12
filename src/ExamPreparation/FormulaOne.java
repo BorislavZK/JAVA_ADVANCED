@@ -44,7 +44,9 @@ public class FormulaOne {
                         if (carRow < 0) {
                             carRow = size - 1;
                         }
-
+                    } else {
+                        carRow += 2;
+                        currentChar = matrix[carCol][carRow];
                     }
                     break;
 
@@ -57,6 +59,9 @@ public class FormulaOne {
                         if (carCol == size) {
                             carCol = 0;
                         }
+                    } else {
+                        carCol -=2;
+                        currentChar = matrix[carCol][carRow];
                     }
                     break;
 
@@ -70,6 +75,9 @@ public class FormulaOne {
                             carRow = 0;
                         }
 
+                    } else {
+                        carRow-=2;
+                        currentChar = matrix[carCol][carRow];
                     }
                     break;
 
@@ -82,6 +90,9 @@ public class FormulaOne {
                         if (carCol < 0) {
                             carCol = size - 1;
                         }
+                    } else {
+                        carCol+= 2;
+                        currentChar = matrix[carCol][carRow];
                     }
                     break;
             }
