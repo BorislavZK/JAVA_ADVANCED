@@ -4,9 +4,7 @@ import java.util.Scanner;
 
 public class FormulaOne {
     public static void main(String[] args) {
-
         Scanner scan = new Scanner(System.in);
-
         int size = Integer.parseInt(scan.nextLine());
         int commandsCount = Integer.parseInt(scan.nextLine());
 
@@ -28,15 +26,13 @@ public class FormulaOne {
             }
         }
 
-        char currentChar = ' ';
+        char currentChar = matrix[carCol][carRow];
 
         boolean isWin = false;
 
         for (int i = 0; i < commandsCount; i++) {
 
             String direction = scan.nextLine();
-
-            currentChar = matrix[carRow][carCol];
 
             switch (direction) {
                 case "up":
@@ -48,6 +44,7 @@ public class FormulaOne {
                         if (carRow < 0) {
                             carRow = size - 1;
                         }
+
                     }
                     break;
 
@@ -72,6 +69,7 @@ public class FormulaOne {
                         if (carRow == size) {
                             carRow = 0;
                         }
+
                     }
                     break;
 
@@ -86,9 +84,9 @@ public class FormulaOne {
                         }
                     }
                     break;
-
             }
 
+            matrix[carRow][carCol] = 'P';
 
         }
 
