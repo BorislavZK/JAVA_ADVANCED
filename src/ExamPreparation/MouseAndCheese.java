@@ -93,6 +93,23 @@ public class MouseAndCheese {
         mooving(matrix);
     }
 
+    private static void moveDown(char[][] matrix) {
+        if (row + 1 > matrix.length - 1){
+            outOfMatrix = true;
+            matrix[row][col] = '-';
+            return;
+        }
+        matrix[row][col] = '-';
+        row++;
+        if (matrix[row][col] == 'B'){
+            matrix[row][col] = '-';
+            row++;
+        }
+        mooving(matrix);
+    }
+
+
+
     private static void mooving(char[][] matrix) {
         if (matrix[row][col] == 'c'){
             matrix[row][col] = 'M';
