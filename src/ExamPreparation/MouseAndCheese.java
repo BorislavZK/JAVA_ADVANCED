@@ -20,7 +20,7 @@ public class MouseAndCheese {
         boolean mouseFound = false;
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j]== 'M') {
+                if (matrix[i][j] == 'M') {
                     row = i;
                     col = j;
                     mouseFound = true;
@@ -32,9 +32,6 @@ public class MouseAndCheese {
             }
         }
 
-
-
-
         String command = scan.nextLine();
 
         while (!command.equals("end")) {
@@ -43,50 +40,59 @@ public class MouseAndCheese {
                 case "up":
                     moveUp(matrix);
                     break;
-
                 case "right":
-                    col++;
-                    if (col == matrix.length) {
-                        col = 0;
-                    }
+                    moveRight(matrix);
                     break;
                 case "down":
-                    row++;
-                    if (row == matrix.length) {
-                        row = 0;
-                    }
+                    moveDown(matrix);
                     break;
                 case "left":
-                    col--;
-                    if (col < 0) {
-                        col = matrix.length - 1;
-                    }
+                    moveLeft(matrix);
                     break;
-
             }
 
-
+            if (outOfMatrix) {
+                System.out.println("Where is the mouse?");
+                break;
+            }
             command = scan.nextLine();
-
         }
 
+        if (cheese < 5) {
+            System.out.printf("The mouse couldn't eat the cheeses, she needed %d cheeses more.%n",
+                    5 - cheese);
+        } else {
+            System.out.printf("Great job, the mouse is fed %d cheeses!%n", cheese);
+        }
+
+
+        printMatrix(matrix);
     }
 
-    private static void fillMatrix (char[][] matrix, Scanner scan){
+    private static void printMatrix(char[][] matrix) {
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix.length; col++) {
+                System.out.print(matrix[row][col]);
+            }
+            System.out.println();
+        }
+    }
+
+    private static void fillMatrix(char[][] matrix, Scanner scan) {
         for (int i = 0; i < matrix.length; i++) {
             matrix[i] = scan.nextLine().replace(" ", "").toCharArray();
         }
     }
 
     private static void moveUp(char[][] matrix) {
-        if (row - 1 < 0){
+        if (row - 1 < 0) {
             outOfMatrix = true;
             matrix[row][col] = '-';
             return;
         }
         matrix[row][col] = '-';
         row--;
-        if (matrix[row][col] == 'B'){
+        if (matrix[row][col] == 'B') {
             matrix[row][col] = '-';
             row--;
         }
@@ -94,29 +100,56 @@ public class MouseAndCheese {
     }
 
     private static void moveDown(char[][] matrix) {
-        if (row + 1 > matrix.length - 1){
+        if (row + 1 > matrix.length - 1) {
             outOfMatrix = true;
             matrix[row][col] = '-';
             return;
         }
         matrix[row][col] = '-';
         row++;
-        if (matrix[row][col] == 'B'){
+        if (matrix[row][col] == 'B') {
             matrix[row][col] = '-';
             row++;
         }
         mooving(matrix);
     }
 
+    private static void moveRight(char[][] matrix) {
+        if (col + 1 > matrix.length - 1) {
+            outOfMatrix = true;
+            matrix[row][col] = '-';
+            return;
+        }
+        matrix[row][col] = '-';
+        col++;
+        if (matrix[row][col] == 'B') {
+            matrix[row][col] = '-';
+            col++;
+        }
+        mooving(matrix);
+    }
 
+    private static void moveLeft(char[][] matrix) {
+        if (col - 1 < 0) {
+            outOfMatrix = true;
+            matrix[row][col] = '-';
+            return;
+        }
+        matrix[row][col] = '-';
+        col--;
+        if (matrix[row][col] == 'B') {
+            matrix[row][col] = '-';
+            col--;
+        }
+        mooving(matrix);
+    }
 
     private static void mooving(char[][] matrix) {
-        if (matrix[row][col] == 'c'){
+        if (matrix[row][col] == 'c') {
             matrix[row][col] = 'M';
-            cheese ++;
-        }else {
+            cheese++;
+        } else {
             matrix[row][col] = 'M';
         }
-
     }
 }
